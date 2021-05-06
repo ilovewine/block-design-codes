@@ -9,8 +9,7 @@ const BD: BlockDesign = chooseBD();
   let result: Binary[][] | number;
   switch (Deno.args.length) {
     case 3:
-      result = BD.incidenceMatrix;
-      console.log(result)
+      BD.printMatrix();
       break;
     case 4:
       result = BD.minDist;

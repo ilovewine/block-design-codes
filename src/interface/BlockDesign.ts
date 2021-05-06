@@ -4,5 +4,7 @@ export default interface BlockDesign {
   readonly order: number;
   readonly incidenceMatrix: Binary[][];
   readonly minDist: number;
+  readonly blockDesign: number[][];
+  printMatrix(): void;
   correct(vectors: Binary[][]): Binary[][];
 }

@@ -8,11 +8,18 @@ export default class AffinePlane implements BlockDesign {
     return [[0]];
   }
 
+  printMatrix() {
+  }
+
   get minDist(): number {
     return 0;
   }
 
   correct(vectors: Binary[][]): Binary[][] {
     return [[0]]
+  }
+
+  get blockDesign(): number[][] {
+    return [[1]]
   }
 }
