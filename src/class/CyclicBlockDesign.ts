@@ -1,6 +1,7 @@
 import BlockDesign from '../interface/BlockDesign.ts';
 import { generateArray1th, generateArray0th } from '../utils.ts';
 import { vectors } from '../interface/types.ts';
+import { ERROR } from '../interface/options.ts';
 
 export default class CyclicBlockDesign extends BlockDesign {
   constructor(protected order: number) {
@@ -34,6 +35,6 @@ export default class CyclicBlockDesign extends BlockDesign {
       tempSet.sort((a, b) => a - b);
       if (multiGroup.length === tempSet.length && JSON.stringify(multiGroup) === JSON.stringify(tempSet)) return i;
     }
-    throw new Error('COULD NOT CALCULATE FIELD GENERATOR');
+    throw new Error(ERROR.FIELD_GENERATOR);
   }
 }

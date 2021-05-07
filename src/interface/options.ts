@@ -1,0 +1,14 @@
+export default interface ArgsOptions {
+  type: 'A' | 'P' | 'C';
+  order: number;
+  minDist: boolean;
+  correct: string | false;
+}
+
+export const ERROR = {
+  INCOMPATIBLE: 'GIVEN ARGUMENTS ARE INCOMPATIBLE.',
+  FIELD_GENERATOR: 'COULD NOT CALCULATE FIELD GENERATOR',
+  CANNOT_CORRECT: 'ERROR',
+  WRONG_FILE_CONTENTS: 'THE FILE DOES NOT CONTAIN BINARY VECTORS.',
+  VECTORS_DIFF_SIZE: 'CANNOT CALCULATE DISTANCE - VECTORS HAVE DIFFERENT SIZES.'
+}

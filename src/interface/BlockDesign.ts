@@ -1,6 +1,7 @@
 import { vectors, vector } from './types.ts';
 import dist from '../hammingMetric.ts';
 import { OS_EOL } from '../utils.ts';
+import { ERROR } from './options.ts';
 
 export default abstract class BlockDesign {
   protected constructor(protected order: number) {}
@@ -30,7 +31,7 @@ export default abstract class BlockDesign {
       for (let [code, dist] of allDists) {
         if (dist === min) minDists.push(code);
       }
-      result.push(minDists.length > 1 ? 'ERROR' : minDists[0].join(' '));
+      result.push(minDists.length > 1 ? ERROR.CANNOT_CORRECT : minDists[0].join(' '));
     });
     return result.join(OS_EOL());
   }
