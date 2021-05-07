@@ -1,25 +1,20 @@
-import BlockDesign, { Binary } from "../interface/BlockDesign.ts";
+import BlockDesign from '../interface/BlockDesign.ts';
+import { vectors } from '../interface/types.ts';
 
-export default class ProjectivePlane implements BlockDesign {
-  constructor(readonly order: number) {
+export default class ProjectivePlane extends BlockDesign {
+  constructor(protected order: number) {
+    super(order);
   }
 
-  get incidenceMatrix(): Binary[][] {
+  get incidenceMatrix(): vectors {
     return [[0]];
   }
 
-  printMatrix() {
-  }
-
-  get minDist(): number {
-    return 0;
-  }
-
-  correct(vectors: Binary[][]): Binary[][] {
-    return [[0]]
+  correct(vectors: vectors): string {
+    return "";
   }
 
   get blockDesign(): number[][] {
-    return [[1]]
+    return [[1]];
   }
 }

@@ -1,25 +1,21 @@
-import BlockDesign, { Binary } from '../interface/BlockDesign.ts';
+import { vectors } from '../interface/types.ts';
+import BlockDesign from '../interface/BlockDesign.ts';
 
-export default class AffinePlane implements BlockDesign {
-  constructor(readonly order: number) {
+export default class AffinePlane extends BlockDesign {
+  constructor(protected order: number) {
+    super(order);
   }
 
-  get incidenceMatrix(): Binary[][] {
+  get incidenceMatrix(): vectors {
     return [[0]];
   }
 
-  printMatrix() {
-  }
-
+  // we need another formula since an affine plane is not a symmetric BD
   get minDist(): number {
     return 0;
   }
 
-  correct(vectors: Binary[][]): Binary[][] {
-    return [[0]]
-  }
-
   get blockDesign(): number[][] {
-    return [[1]]
+    return [[1]];
   }
 }

@@ -1,25 +1,15 @@
-import BlockDesign, { Binary } from '../interface/BlockDesign.ts';
-import { generateArray1th, generateArray0th, OS_EOL } from "../utils.ts";
+import BlockDesign from '../interface/BlockDesign.ts';
+import { generateArray1th, generateArray0th } from '../utils.ts';
+import { vectors } from '../interface/types.ts';
 
-export default class CyclicBlockDesign implements BlockDesign {
-  constructor(readonly order: number) {}
+export default class CyclicBlockDesign extends BlockDesign {
+  constructor(protected order: number) {
+    super(order);
+  }
 
-  get incidenceMatrix(): Binary[][] {
+  get incidenceMatrix(): vectors {
     const BD = this.blockDesign;
     return generateArray0th(BD.length).map(i => generateArray0th(this.order).map(j => (BD[i].includes(j) ? 1 : 0)));
-  }
-
-  printMatrix() {
-    const matrix = this.incidenceMatrix.map(vertex => vertex.join(' ')).join(OS_EOL());
-    console.log(matrix)
-  }
-
-  get minDist(): number {
-    return 0;
-  }
-
-  correct(vectors: Binary[][]): Binary[][] {
-    return [[0]];
   }
 
   get blockDesign(): number[][] {

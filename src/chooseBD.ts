@@ -11,8 +11,10 @@ export default function chooseBD(): BlockDesign {
   switch (options.type) {
     case 'A':
       BD = new AffinePlane(options.order);
+      break;
     case 'P':
       BD = new ProjectivePlane(options.order);
+      break;
     case 'C':
       BD = new CyclicBlockDesign(options.order);
       break;
