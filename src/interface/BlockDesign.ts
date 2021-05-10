@@ -1,4 +1,4 @@
-import { vectors, vector, point } from './types.ts';
+import { vectors, vector, line } from './types.ts';
 import dist from '../hammingMetric.ts';
 import { OS_EOL } from '../utils.ts';
 import { ERROR } from './options.ts';
@@ -6,7 +6,7 @@ import { ERROR } from './options.ts';
 export default abstract class BlockDesign {
   protected constructor(protected order: number) {}
   abstract incidenceMatrix: vectors;
-  abstract blockDesign: number[][] | point[][];
+  abstract blockDesign: number[][] | line[];
   abstract minDist: number;
 
   correct(vectors: vectors): string {

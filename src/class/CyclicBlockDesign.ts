@@ -1,5 +1,5 @@
 import BlockDesign from '../interface/BlockDesign.ts';
-import { generateArray1th, generateArray0th } from '../utils.ts';
+import { generateArray1th, generateArray0th, areIdentical } from '../utils.ts';
 import { vectors } from '../interface/types.ts';
 import { ERROR } from '../interface/options.ts';
 
@@ -32,8 +32,7 @@ export default class CyclicBlockDesign extends BlockDesign {
         cyclicEl = (cyclicEl * i) % this.order;
         tempSet.push(cyclicEl);
       }
-      tempSet.sort((a, b) => a - b);
-      if (multiGroup.length === tempSet.length && JSON.stringify(multiGroup) === JSON.stringify(tempSet)) return i;
+      if (areIdentical(multiGroup, tempSet)) return i;
     }
     throw new Error(ERROR.FIELD_GENERATOR);
   }
