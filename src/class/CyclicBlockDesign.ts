@@ -37,4 +37,12 @@ export default class CyclicBlockDesign extends BlockDesign {
     }
     throw new Error(ERROR.FIELD_GENERATOR);
   }
+
+  // cyclic BD is a symmetric BD - using theorem
+  get minDist(): number {
+    const BD = this.blockDesign;
+    const k = BD[0].length;
+    const r2 = (k * (k - 1)) / (this.order - 1);
+    return 2 * (k - r2);
+  }
 }

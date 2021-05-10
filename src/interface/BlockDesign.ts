@@ -7,13 +7,7 @@ export default abstract class BlockDesign {
   protected constructor(protected order: number) {}
   abstract incidenceMatrix: vectors;
   abstract blockDesign: number[][] | point[][];
-
-  get minDist(): number {
-    const BD = this.blockDesign;
-    const k = BD[0].length;
-    const r2 = (k * (k - 1)) / (this.order - 1);
-    return 2 * (k - r2);
-  }
+  abstract minDist: number;
 
   correct(vectors: vectors): string {
     const codes = this.incidenceMatrix;
@@ -36,7 +30,7 @@ export default abstract class BlockDesign {
     return result.join(OS_EOL());
   }
 
-  printMatrix() {
+  printMatrix(): void {
     const matrix = this.incidenceMatrix.map((vector: vector) => vector.join(' ')).join(OS_EOL());
     console.log(matrix);
   }

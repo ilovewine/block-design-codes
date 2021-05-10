@@ -11,10 +11,15 @@ export default class ProjectivePlane extends BlockDesign {
   }
 
   correct(vectors: vectors): string {
-    return "";
+    return '';
   }
 
   get blockDesign(): number[][] {
     return [[1]];
+  }
+
+  // similar to Affine Plane formula, minus infinity point
+  get minDist(): number {
+    return this.order ** 2 - 2 * (this.order - 2);
   }
 }

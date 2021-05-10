@@ -20,11 +20,6 @@ export default class AffinePlane extends BlockDesign {
     );
   }
 
-  // we need another formula since an affine plane is not a symmetric BD
-  get minDist(): number {
-    return 0;
-  }
-
   get blockDesign(): point[][] {
     const lines: point[][] = [];
     for (let b = 0; b < this.order; ++b) {
@@ -45,5 +40,10 @@ export default class AffinePlane extends BlockDesign {
       lines.push(horizontal);
     }
     return lines;
+  }
+
+  // the amount of different points between two different lines in a plane is always the same
+  get minDist(): number {
+    return this.order ** 2 - 2 * (this.order - 1);
   }
 }
