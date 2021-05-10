@@ -1,5 +1,5 @@
 // @ts-ignore
-import BlockDesign, { binary } from './src/interface/BlockDesign.ts';
+import BlockDesign from './src/interface/BlockDesign.ts';
 import chooseBD from './src/chooseBD.ts';
 import getVectors from './src/getVectors.ts';
 import { vectors } from './src/interface/types.ts';
